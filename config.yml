@@ -1,0 +1,8 @@
+root:
+  window:
+    title: Software by Michael Arakilian
+    menu: false
+    geometry:
+      resizable: false
+      width: 650
+      height: 550

@@ -1,8 +1,9 @@
 # py-wizard
 
-:snake: Graphical User Interface boilerplate, enabling quicker, less overhead, (Software Wizard) development - using Python & Tkinter
+:snake: Graphical User Interface boilerplate, enabling quicker, less overhead, (Software Wizard) development
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/arakilian0/py-wizard/blob/master/LICENSE.md) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](https://github.com/arakilian0/py-wizard/blob/master/CONTRIBUTING.md)
+[![Build Status](https://travis-ci.com/arakilian0/py-wizard.svg?branch=master)](https://travis-ci.com/arakilian0/py-wizard)
+[![GitHub release](https://img.shields.io/github/release/arakilian0/py-wizard.svg)](https://github.com/arakilian0/py-wizard/releases/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/arakilian0/py-wizard/blob/master/LICENSE.md) [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-orange.svg?style=flat)](https://github.com/arakilian0/py-wizard/blob/master/CONTRIBUTING.md)
 
 ## Requirements
 ```
