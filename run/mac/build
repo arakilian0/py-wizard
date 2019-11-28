@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# build requirements.txt
+# delete prev build
+# compile new build
