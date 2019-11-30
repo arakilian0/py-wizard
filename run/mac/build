@@ -1,4 +1,3 @@
 #!/bin/bash
-# build requirements.txt
-# delete prev build
-# compile new build
+rm arakilian0.spec && rm -rf ./tmp/mac/arakilian0 ./bin/mac
+pyinstaller --onefile --workpath ./tmp/mac --distpath ./bin/mac --name arakilian0 ./src/main.py
