@@ -1,7 +1,7 @@
 from tkinter import *
 import yaml
 
-def load(type, target='config.yml'):
+def Load(type, target='config.yml'):
 
     # yaml file loader
     if type == 'yaml':

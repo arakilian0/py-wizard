@@ -6,10 +6,8 @@ root:
       resizable: false
       width: 650
       height: 550
-    button:
-      color: gray
-    font:
-      family: Helvetica
-      size: 18
-      style: bold
-      color: black
+  content:
+    intro:
+      title: Some title
+      description: "This is the :clickable*: link to something."
+      link: "https://github.com"
