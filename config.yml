@@ -1,13 +1,33 @@
 root:
-  window:
-    title: Software by Michael Arakilian
-    menu: false
-    geometry:
-      resizable: false
-      width: 650
-      height: 550
+  # Window Configuration (root)
+  title: Software by Michael Arakilian
+  menu: false
+  geometry:
+    resizable: false
+    width: 650
+    height: 550
+  # Window Content (root)
   content:
+    # Frame | Intro
     intro:
-      title: Some title
-      description: "This is the :clickable*: link to something."
-      link: "https://github.com"
+      title:
+        entry: "This is the title"
+        width: 25
+        height: 2
+        color: red
+        background: green
+        font:
+          family: Helvetica
+          size: 18
+          style: bold
+      description:
+        entry: "This is the :clickable item*: link to something."
+        link: "https://github.com"
+        width: 25
+        height: 2
+        color: red
+        background: gray
+        font:
+          family: Arial
+          size: 22
+          style: italic
