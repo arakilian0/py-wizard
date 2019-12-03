@@ -1,29 +1,35 @@
 from tkinter import *
 import webbrowser
 import yaml
+import sys
 
-# Alias the namespace of tkinter's Menu method
 TkMenu = Menu
 
-# Config Function
-# returns python dictionary
-# containing data from config.yml
-def Config():
+
+def config():
     with open('config.yml') as file:
         data = yaml.load(file, Loader=yaml.FullLoader)
         return data
 
-# Call Config() to set conf as the data object
-# which is used in the other functions as well.
-conf = Config()
 
-# Title Function
-# returns window title
+def platform():
+    if sys.platform.startswith('linux'):
+        return 'linux'
+    elif sys.platform.startswith('win32') or sys.platform.startswith('cygwin'):
+        return 'windows'
+    elif sys.platform.startswith('darwin'):
+        return 'darwin'
+    else:
+        return 'Undetected operating system type.'
+
+
+conf = config()
+
+
 def Title(target):
     return target.title(conf['root']['title'])
 
-# Menu Function
-# returns window menu
+
 def Menu(target):
     if conf['root']['menu']:
         menu = TkMenu(target)
@@ -33,34 +39,37 @@ def Menu(target):
         menu = TkMenu(target)
         return target.config(menu=menu)
 
-# Geometry Function
-# returns window geometry
+
 def Geometry(target):
-    geostr = str(conf['root']['geometry']['width']) + 'x' + str(conf['root']['geometry']['height'])
+    geostr = str(conf['root']['geometry']['width'])+'x'+str(conf['root']['geometry']['height'])
     return target.geometry(geostr)
 
+
 def Font(obj):
-    font = obj['family'] + ' ' + str(obj['size']) + ' ' + obj['style']
+    font = obj['family']+' '+str(obj['size'])+' '+obj['style']
     return font
 
-# Resize Function
-# returns window resize configuration
+
 def Resize(target):
     if conf['root']['geometry']['resizable']:
         return target.resizable(0,0)
     else:
         return target.resizable(0,0)
 
-if conf['root']['content']['intro']['description']['link']:
-    def Openlink0():
-        webbrowser.open_new_tab(conf['root']['content']['intro']['description']['link'])
 
-def Openlink1(args):
-    print('asd')
+def OpenLink():
+    webbrowser.open_new_tab(conf['root']['content']['intro']['description']['link'])
 
-# Text Linker
-# make certain tkinter Text characters
-# clickable with correspanding functions
+
+def SetPath():
+    print('setting path ...')
+    return 'asdsdsds'
+
+
+def ChangePath(args):
+    print('changing path ...')
+
+
 class Link:
     def __init__(self, text):
         self.text = text
@@ -84,3 +93,9 @@ class Link:
             if tag[:6] == 'hyper-':
                 self.links[tag]()
                 return
+
+def Quit(args):
+    sys.exit()
+
+def Install(args):
+    print('installing binaries...')

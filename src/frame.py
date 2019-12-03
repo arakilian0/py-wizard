@@ -1,9 +1,10 @@
 from tkinter import *
 from lib import *
 
-conf = Config()
+conf = config()
 
 # Intro Frame
+#########################################################################
 def Intro(target):
     _title = conf['root']['content']['intro']['title']
     _description = conf['root']['content']['intro']['description']
@@ -31,7 +32,7 @@ def Intro(target):
             if '*' in i:
                 description.insert( INSERT ,
                     i.split('*')[0],
-                    hyperlink.add(Openlink0)
+                    hyperlink.add(OpenLink)
                 )
             else:
                 description.insert(INSERT, i)
@@ -40,16 +41,14 @@ def Intro(target):
     return frame
 
 # Path Frame
+#########################################################################
 def Path(target):
     _input = conf['root']['content']['path']['input']
     _button = conf['root']['content']['path']['button']
     frame = Frame(target)
     whitespace = Label(frame, text='').pack()
     input = Label( frame ,
-                # use function to set
-                # text based on
-                # operating system
-                text='asdsdsdsd',
+                text=SetPath(),
                 fg=_input['color'],
                 width=_input['width'],
                 height=_input['height'],
@@ -65,7 +64,54 @@ def Path(target):
                 height=_button['height'],
                 font=Font(_button['font'])
             )
-    input.pack(side=LEFT)  # create Path Changer Function
-    button.bind('<Button-1>', Openlink1)
+    input.pack(side=LEFT)
+    button.bind('<Button-1>', ChangePath)
     button.pack(side=RIGHT)
+
+    return frame
+
+# License Frame
+#########################################################################
+def License(target):
+    frame = Frame(target)
+    whitespace = Label(frame, text='').pack()
+
+    demo = Label(frame, text="some text")
+    demo.pack()
+
+    return frame
+
+# Control Frame
+#########################################################################
+def Control(target):
+    _quit = conf['root']['content']['control']['quit']
+    _install = conf['root']['content']['control']['install']
+    _seperator = conf['root']['content']['control']['seperator']
+
+    frame = Frame(target)
+    whitespace = Label(frame).pack()
+    seperator = Label(frame, width=_seperator['width'])
+    quit = Label( frame ,
+                        text=_quit['entry'],
+                        fg=_quit['color'],
+                        bg=_quit['background'],
+                        width=_quit['width'],
+                        height=_quit['height'],
+                        font=Font(_quit['font'])
+                    )
+    install = Label( frame ,
+                        text=_install['entry'],
+                        fg=_install['color'],
+                        bg=_install['background'],
+                        width=_install['width'],
+                        height=_install['height'],
+                        font=Font(_install['font'])
+                    )
+    quit.bind("<Button-1>", Quit)
+    install.bind("<Button-1>", Install)
+
+    quit.pack(side=LEFT)
+    seperator.pack(side=LEFT)
+    install.pack(side=RIGHT)
+
     return frame

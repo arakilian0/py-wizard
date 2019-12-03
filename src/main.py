@@ -1,6 +1,6 @@
 from tkinter import Tk
 from lib import Title, Menu, Geometry, Resize
-from frame import Intro, Path
+from frame import Intro, Path, License, Control
 
 root = Tk()
 
@@ -11,7 +11,7 @@ Resize(root)
 
 Intro(root).pack()
 Path(root).pack()
-# License(root).pack()
-# Control(root).pack()
+License(root).pack()
+Control(root).pack()
 
 root.mainloop()

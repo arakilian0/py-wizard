@@ -18,7 +18,7 @@ root:
           style: bold
       description:
         entry: "This is the :clickable item*: link to something."
-        link: "https://github.com"
+        link: "https://github.com/arakilian0/py-wizard"
         width: 36
         height: 1
         color: black
@@ -43,6 +43,29 @@ root:
           style: normal
       button:
         entry: Change
+        color: white
+        background: '#85877C'
+        width: 8
+        height: 2
+        font:
+          family: Arial
+          size: 14
+          style: normal
+    control:
+      seperator:
+        width: 30
+      quit:
+        entry: Quit
+        color: white
+        background: '#85877c'
+        width: 8
+        height: 2
+        font:
+          family: Arial
+          size: 14
+          style: normal
+      install:
+        entry: Install
         color: white
         background: '#85877C'
         width: 8
