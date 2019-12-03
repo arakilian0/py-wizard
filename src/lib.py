@@ -1,4 +1,5 @@
 from tkinter import *
+import webbrowser
 import yaml
 
 # Alias the namespace of tkinter's Menu method
@@ -38,6 +39,10 @@ def Geometry(target):
     geostr = str(conf['root']['geometry']['width']) + 'x' + str(conf['root']['geometry']['height'])
     return target.geometry(geostr)
 
+def Font(obj):
+    font = obj['family'] + ' ' + str(obj['size']) + ' ' + obj['style']
+    return font
+
 # Resize Function
 # returns window resize configuration
 def Resize(target):
@@ -45,6 +50,13 @@ def Resize(target):
         return target.resizable(0,0)
     else:
         return target.resizable(0,0)
+
+if conf['root']['content']['intro']['description']['link']:
+    def Openlink0():
+        webbrowser.open_new_tab(conf['root']['content']['intro']['description']['link'])
+
+def Openlink1(args):
+    print('asd')
 
 # Text Linker
 # make certain tkinter Text characters

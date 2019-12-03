@@ -1,88 +1,71 @@
 from tkinter import *
-from lib import Config, Link
-import webbrowser
+from lib import *
 
 conf = Config()
 
-def link_click():
-    webbrowser.open_new_tab('https://google.com')
-
 # Intro Frame
 def Intro(target):
+    _title = conf['root']['content']['intro']['title']
+    _description = conf['root']['content']['intro']['description']
     frame = Frame(target)
+    whitespace = Label(frame, text='').pack()
+    title = Label( frame ,
+                text=_title['entry'],
+                width=_title['width'],
+                height=_title['height'],
+                fg=_title['color'],
+                font=Font(_title['font'])
+            )
+    description = Text( frame ,
+                width=_description['width'],
+                height=_description['height'],
+                fg=_description['color'],
+                font=Font(_description['font'])
+            )
+    title.pack()
+    description.pack()
+    hyperlink = Link(description)
 
-    intro_description = Text(frame, borderwidth=0, highlightthickness=0, width=56, height=2)
-    intro_description.pack()
-    hyperlink = Link(intro_description)
-    intro_description.insert(INSERT, 'Installs the ')
-    intro_description.insert(INSERT, 'about-me', hyperlink.add(link_click))
-    intro_description.insert(INSERT, ' executable and configures path.')
-    intro_description.insert(INSERT, '')
-    intro_description.config(state=DISABLED)
-    # hyperlink = Link(title)
+    if ':' in _description['entry']:
+        for i in _description['entry'].split(':'):
+            if '*' in i:
+                description.insert( INSERT ,
+                    i.split('*')[0],
+                    hyperlink.add(Openlink0)
+                )
+            else:
+                description.insert(INSERT, i)
 
-    # title.insert(INSERT, 'asd')
-    # title.insert(INSERT, 'asd')
-    # title.insert(INSERT, 'asd')
-
+    description.config(state=DISABLED)
     return frame
 
 # Path Frame
 def Path(target):
+    _input = conf['root']['content']['path']['input']
+    _button = conf['root']['content']['path']['button']
     frame = Frame(target)
-
-    intro_description = Text(frame, borderwidth=0, highlightthickness=0, width=56, height=2)
-    intro_description.pack()
-    hyperlink = Link(intro_description)
-    intro_description.insert(INSERT, 'Installs the ')
-    intro_description.insert(INSERT, 'about-me', hyperlink.add(link_click))
-    intro_description.insert(INSERT, ' executable and configures path.')
-    intro_description.insert(INSERT, '')
-    intro_description.config(state=DISABLED)
-    # hyperlink = Link(title)
-
-    # title.insert(INSERT, 'asd')
-    # title.insert(INSERT, 'asd')
-    # title.insert(INSERT, 'asd')
-
-    return frame
-
-# License Frame
-def License(target):
-    frame = Frame(target)
-
-    intro_description = Text(frame, borderwidth=0, highlightthickness=0, width=56, height=2)
-    intro_description.pack()
-    hyperlink = Link(intro_description)
-    intro_description.insert(INSERT, 'Installs the ')
-    intro_description.insert(INSERT, 'about-me', hyperlink.add(link_click))
-    intro_description.insert(INSERT, ' executable and configures path.')
-    intro_description.insert(INSERT, '')
-    intro_description.config(state=DISABLED)
-    # hyperlink = Link(title)
-
-    # title.insert(INSERT, 'asd')
-    # title.insert(INSERT, 'asd')
-    # title.insert(INSERT, 'asd')
-
-    return frame
-
-# Control Frame
-def Control(target):
-    frame = Frame(target)
-
-    intro_description = Text(frame, borderwidth=0, highlightthickness=0, width=56, height=2)
-    intro_description.pack()
-    hyperlink = Link(intro_description)
-    intro_description.insert(INSERT, 'Installs the ')
-    intro_description.insert(INSERT, 'about-me', hyperlink.add(link_click))
-    intro_description.insert(INSERT, ' executable and configures path.')
-    intro_description.insert(INSERT, '')
-    intro_description.config(state=DISABLED)
-    # hyperlink = Link(title)
-
-    # title.insert(INSERT, 'asd')
-    # title.insert(INSERT, 'asd')
-    # title.insert(INSERT, 'asd')
-
+    whitespace = Label(frame, text='').pack()
+    input = Label( frame ,
+                # use function to set
+                # text based on
+                # operating system
+                text='asdsdsdsd',
+                fg=_input['color'],
+                width=_input['width'],
+                height=_input['height'],
+                borderwidth=_input['borderwidth'],
+                relief=_input['relief'],
+                font=Font(_input['font'])
+            )
+    button = Label( frame ,
+                text=_button['entry'],
+                fg=_button['color'],
+                bg=_button['background'],
+                width=_button['width'],
+                height=_button['height'],
+                font=Font(_button['font'])
+            )
+    input.pack(side=LEFT)  # create Path Changer Function
+    button.bind('<Button-1>', Openlink1)
+    button.pack(side=RIGHT)
     return frame

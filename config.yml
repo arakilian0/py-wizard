@@ -1,33 +1,53 @@
 root:
-  # Window Configuration (root)
   title: Software by Michael Arakilian
   menu: false
   geometry:
     resizable: false
-    width: 650
-    height: 550
-  # Window Content (root)
+    width: 550
+    height: 460
   content:
-    # Frame | Intro
     intro:
       title:
         entry: "This is the title"
-        width: 25
-        height: 2
-        color: red
-        background: green
+        width: 50
+        height: 1
+        color: black
         font:
           family: Helvetica
-          size: 18
+          size: 20
           style: bold
       description:
         entry: "This is the :clickable item*: link to something."
         link: "https://github.com"
-        width: 25
+        width: 36
+        height: 1
+        color: black
+        font:
+          family: Helvetica
+          size: 14
+          style: normal
+    path:
+      entry:
+        win: C:\project
+        linux: usr/local/bin
+        mac: usr/local/bin
+      input:
+        color: black
+        width: 43
         height: 2
-        color: red
-        background: gray
+        relief: 'sunken'
+        borderwidth: 2
         font:
           family: Arial
-          size: 22
-          style: italic
+          size: 14
+          style: normal
+      button:
+        entry: Change
+        color: white
+        background: '#85877C'
+        width: 8
+        height: 2
+        font:
+          family: Arial
+          size: 14
+          style: normal
